@@ -1,0 +1,6 @@
+package com.cloume.cmp.common;
+
+public enum AnnouncementType {
+	CMPWEBMS,
+	GEPG
+}

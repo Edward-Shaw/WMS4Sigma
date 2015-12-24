@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+div.footer {
+	font-size: 85%;
+	text-align: center;
+	padding: 10px 0px;
+	border-top: solid 1px #CCC;
+}

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name=".base" template="/WEB-INF/templates/base.jsp">
+		<put-attribute name="title"  value="首页"/>
+		<put-attribute name="header" value="/WEB-INF/templates/default-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/templates/default-footer.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name=".adminbase" template="/WEB-INF/templates/admin_base.jsp">
+		<put-attribute name="title"  value="首页"/>
+		<put-attribute name="header" value="/WEB-INF/templates/default-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/templates/default-footer.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name=".staffbase" template="/WEB-INF/templates/staff_base.jsp">
+		<put-attribute name="title"  value="首页"/>
+		<put-attribute name="header" value="/WEB-INF/templates/default-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/templates/default-footer.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name=".visitorbase" template="/WEB-INF/templates/visitor_base.jsp">
+		<put-attribute name="title"  value="首页"/>
+		<put-attribute name="header" value="/WEB-INF/templates/default-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/templates/default-footer.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name=".simple" template="/WEB-INF/templates/simple.jsp">
+		<put-attribute name="title"  value="首页"/>
+		<put-attribute name="header" value="/WEB-INF/templates/default-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition> 
+	
+	<!-- 将body分为listing和paging两部分 -->
+	<definition name=".pagination" template="/WEB-INF/templates/pagination.jsp">
+		<put-attribute name="listing" value="" />
+	</definition>
+	
+	<!-- ======================================= -->
+	<!-- welcome -->
+	<definition name="welcome" extends=".base">
+		<put-attribute name="body" value="/WEB-INF/view/welcome-body.jsp"></put-attribute>
+	</definition>
+	
+	<!-- login -->
+	<definition name="login" extends=".base">
+		<put-attribute name="title" value="登录" type="string"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/login-body.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 修改密码 -->
+	<definition name="user" extends=".base">
+		<put-attribute name="title" value="修改密码" type="string"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/user-body.jsp"></put-attribute>
+	</definition>
+	
+	<!-- users -->
+	<definition name="users-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/users-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="users" extends=".base">
+		<put-attribute name="title" value="用户列表" type="string"></put-attribute>
+		<put-attribute name="body" value="users-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- devices -->
+	<definition name="devices-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="devices" extends=".base">
+		<put-attribute name="title" value="设备列表" type="string"></put-attribute>
+		<put-attribute name="body" value="devices-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- admin devices page -->
+	<definition name="admin-devices-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/admin-devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-devices" extends=".adminbase">
+		<put-attribute name="title" value="设备列表" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-devices-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- staff personal devices page -->
+	<definition name="staff-devices-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/staff-devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="staff-devices" extends=".staffbase">
+		<put-attribute name="title" value="个人设备列表" type="string"></put-attribute>
+		<put-attribute name="body" value="staff-devices-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- all devices for staff -->
+	<definition name="staff-all-devices-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/staff-all-devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="staff-all-devices" extends=".staffbase">
+		<put-attribute name="title" value="设备列表" type="string"></put-attribute>
+		<put-attribute name="body" value="staff-all-devices-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- visitor devices -->
+	<definition name="visitor-devices-listing" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/visitor-devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="visitor-devices" extends=".visitorbase">
+		<put-attribute name="title" value="设备列表" type="string"></put-attribute>
+		<put-attribute name="body" value="visitor-devices-listing" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- admin -->
+	<definition name="admin-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin" extends=".adminbase">
+		<put-attribute name="title" value="超级管理员" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- staff -->
+	<definition name="staff-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="staff" extends=".staffbase">
+		<put-attribute name="title" value="样机管理员" type="string"></put-attribute>
+		<put-attribute name="body" value="staff-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- visitor -->
+	<definition name="visitor-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/devices-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="visitor" extends=".visitorbase">
+		<put-attribute name="title" value="普通员工" type="string"></put-attribute>
+		<put-attribute name="body" value="visitor-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- log of admin -->
+	<definition name="admin-log-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/admin-log-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-log" extends=".adminbase">
+		<put-attribute name="title" value="超级管理员" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-log-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- log of staff -->
+	<definition name="staff-log-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/staff-log-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="staff-log" extends=".staffbase">
+		<put-attribute name="title" value="样机管理员" type="string"></put-attribute>
+		<put-attribute name="body" value="staff-log-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- current rent of staff -->
+	<definition name="staff-curren-rent-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/staff-current-rent-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="current-rent" extends=".staffbase">
+		<put-attribute name="title" value="当前出借" type="string"></put-attribute>
+		<put-attribute name="body" value="staff-curren-rent-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- current rent of admin -->
+	<definition name="admin-curren-rent-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/admin-current-rent-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-current-rent" extends=".adminbase">
+		<put-attribute name="title" value="当前出借" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-curren-rent-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- rent log of admin -->
+	<definition name="admin-rent-log-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/admin-rent-log-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-rent-log" extends=".adminbase">
+		<put-attribute name="title" value="样机管理员" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-rent-log-page" type="definition"></put-attribute>
+	</definition>
+	
+	<!-- rent log of admin -->
+	<definition name="admin-user-list-page" extends=".pagination">
+		<put-attribute name="listing" value="/WEB-INF/view/admin-user-list-body.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-user-list" extends=".adminbase">
+		<put-attribute name="title" value="管理员工" type="string"></put-attribute>
+		<put-attribute name="body" value="admin-user-list-page" type="definition"></put-attribute>
+	</definition>
+
+</tiles-definitions>

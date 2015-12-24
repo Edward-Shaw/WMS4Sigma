@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+    
+    <http pattern="/admins/login" security="none"></http>
+    <http pattern="/statics/**" security="none"></http>
+    
+    <http use-expressions="true" auto-config="true" access-denied-page="/admins/login">
+          
+        <intercept-url pattern="/welcome/admin*" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/logs/voucher*" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/properties/*" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/apps/*" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/logs/purchase*" access="hasAnyRole('ROLE_CP')" />
+        <intercept-url pattern="/logs/recharge*" access="hasAnyRole('ROLE_CP')" />
+        <intercept-url pattern="/welcome/cp*" access="hasAnyRole('ROLE_CP')" />
+        <intercept-url pattern="/statistic/**" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/log/**" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/apps/data/history/**" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/user/**" access="hasAnyRole('ROLE_ADMIN')" />
+        
+        <session-management session-fixation-protection="none">  
+            <concurrency-control/>  
+        </session-management>  
+ 
+        <form-login login-page="/admins/login"
+            default-target-url="/properties/info" 
+            authentication-failure-url="/admins/login"
+            authentication-success-handler-ref="myAuthenticationSuccessHandler" />  <!-- authentication-failure-url="/common/403.jsp"   -->
+        <logout logout-success-url="/admins/login"/>  
+    </http>
+    
+    <authentication-manager>  
+        <authentication-provider>  
+            <!-- <password-encoder hash="md5">  
+                <salt-source user-property="username"/>  
+            </password-encoder> -->
+            <user-service>  
+                <user name="ADMIN" password="ADMIN" authorities="ROLE_CP, ROLE_ADMIN" />  
+                <user name="HC" password="HC@2014CAPS!@#321" authorities="ROLE_CP" />  
+                <user name="RPX" password="RPX@2014CAPS!@#321" authorities="ROLE_CP" />
+            </user-service>
+        </authentication-provider>  
+    </authentication-manager>
+</beans:beans>
