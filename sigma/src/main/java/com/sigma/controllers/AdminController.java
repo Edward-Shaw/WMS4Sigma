@@ -46,7 +46,7 @@ public class AdminController{
 			@RequestParam(value = "user", defaultValue = "ALL") String user,
 			@RequestParam(value = "serialcode", defaultValue = "ALL") String serialcode,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> devices = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("ADMIN")){
@@ -78,7 +78,7 @@ public class AdminController{
 	public String log(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(value = "type", defaultValue = "ALL") String type,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> logs = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("ADMIN")){
@@ -98,7 +98,7 @@ public class AdminController{
 	public String currentRent(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(value = "type", defaultValue = "") String type,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> logs = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("ADMIN")){
@@ -118,7 +118,7 @@ public class AdminController{
 	public String rentLog(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(value = "user", defaultValue = "") String user,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> logs = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("ADMIN")){

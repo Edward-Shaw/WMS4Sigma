@@ -41,7 +41,7 @@ public class UserController {
 	public String listUser(
 			HttpServletRequest request,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "50") int size
+			@RequestParam(value = "size", defaultValue = "150") int size
 			){
 		List<Map<String, Object>> userList = userService.getAllUserList(size * page, size);
 		request.setAttribute("users", userList);

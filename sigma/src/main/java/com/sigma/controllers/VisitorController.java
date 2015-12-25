@@ -39,7 +39,7 @@ public class VisitorController{
 			@RequestParam(value = "user", defaultValue = "ALL") String user,
 			@RequestParam(value = "serialcode", defaultValue = "ALL") String serialcode,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "25") int size){
+			@RequestParam(value = "size", defaultValue = "1000") int size){
 		
 		List<Map<String, ?>> devices = null;
 		

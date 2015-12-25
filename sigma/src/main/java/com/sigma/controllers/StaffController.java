@@ -41,7 +41,7 @@ public class StaffController{
 			@RequestParam(value = "status", defaultValue = "ALL") String status,
 			@RequestParam(value = "serialcode", defaultValue = "ALL") String serialcode,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> devices = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("EDITOR")){
@@ -75,7 +75,7 @@ public class StaffController{
 	public String log(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(value = "user", defaultValue = "") String user,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> logs = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("EDITOR")){
@@ -95,7 +95,7 @@ public class StaffController{
 	public String currentRentLog(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(value = "user", defaultValue = "") String user,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "500") int size){
+			@RequestParam(value = "size", defaultValue = "2500") int size){
 		List<Map<String, ?>> logs = null;
 		
 		if(request.getSession().getAttribute("username") == null || request.getSession().getAttribute("role") == null || !request.getSession().getAttribute("role").equals("EDITOR")){

@@ -37,7 +37,7 @@ public class DevicesController {
 			@RequestParam(value = "user", defaultValue = "ALL") String user,
 			@RequestParam(value = "serialcode", defaultValue = "ALL") String serialcode,
 			@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "50") int size
+			@RequestParam(value = "size", defaultValue = "2500") int size
 			){
 
 		if(request.getSession().getAttribute("username") == null){
